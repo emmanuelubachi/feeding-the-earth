@@ -12,7 +12,7 @@ const years = [
 
 async function getData() {
   const res = await fetch(
-    "https://ubachi.com/feeding-the-earth-api/res/imports_by_commodity.json"
+    "https://api-fte.vizstats.com/data/imports_by_commodity.json"
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
