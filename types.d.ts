@@ -31,3 +31,9 @@ export type ComboboxProp = {
   value: any;
   open: boolean;
 };
+
+export type navbar = {
+  id: number;
+  name: string;
+  link: string;
+}[];
