@@ -10,8 +10,10 @@ export default async function Countries() {
   );
 
   return (
-    <div className="m-auto max-w-screen-xl">
-      {data?.length && <YearFilter dataset={data} filter={years} />}
+    <div className="m-auto max-w-screen-xl overflow-hidden">
+      {data?.length && (
+        <YearFilter dataset={data} filter={years} defaultChart="Treemap" />
+      )}
     </div>
   );
 }

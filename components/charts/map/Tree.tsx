@@ -1,20 +1,24 @@
 "use client";
 import React from "react";
+
 import * as echarts from "echarts/core";
 import ReactEcharts from "echarts-for-react";
+
 import VintageTheme from "@/public/vintage.project.json";
 import { DataProps } from "@/types";
+import { formatNumberWithCommas } from "@/lib/utils";
 
 type treeDataProps = {
   treeData: DataProps;
 };
 
-function Treemap({ treeData }: treeDataProps) {
-  echarts.registerTheme("vintage", VintageTheme.theme);
+type paramsProp = {
+  name: string;
+  value: number;
+};
 
-  // function formatNumberWithCommas({ num }: { num: number }) {
-  //   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // }
+export default function Treemap({ treeData }: treeDataProps) {
+  echarts.registerTheme("vintage", VintageTheme.theme);
 
   const option = {
     toolbox: {
@@ -39,16 +43,16 @@ function Treemap({ treeData }: treeDataProps) {
         roam: false,
         label: {
           position: "center",
-          // formatter: function ({ params }: { params: any }) {
-          //   return (
-          //     `{name|` +
-          //     params.name +
-          //     `}` +
-          //     "\n" +
-          //     formatNumberWithCommas(params.value) +
-          //     " (Tonnes)"
-          //   );
-          // },
+          formatter: function (params: paramsProp) {
+            return (
+              `{name|` +
+              params.name +
+              `}` +
+              "\n" +
+              formatNumberWithCommas(params.value) +
+              " (Tonnes)"
+            );
+          },
           rich: {
             name: {
               fontSize: 16,
@@ -69,5 +73,3 @@ function Treemap({ treeData }: treeDataProps) {
     />
   );
 }
-
-export default Treemap;
