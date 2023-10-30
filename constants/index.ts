@@ -2,7 +2,7 @@ import { YearProps, navbar } from "@/types";
 
 export const NAVITEMS: navbar = [
   { id: 1, name: "Country", link: "/countries" },
-  { id: 2, name: "Data", link: "/" },
+  { id: 2, name: "Data", link: "/data" },
 ];
 
 export const years: YearProps = [
